@@ -19,6 +19,10 @@ export default function App() {
       setInput("");
    };
 
+   const deleteTodo = (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+   };
+
    return (
       <div className="flex flex-col justify-center items-center font-poppins">
          <h1 className="font-bold text-[6rem] text-gray-300">todos</h1>
@@ -42,7 +46,11 @@ export default function App() {
          </form>
          <div className="flex flex-col items-center w-full">
             {todos.map((todo) => (
-               <Todo key={todo.id} todo={todo} todos={todos} />
+               <Todo
+                  key={todo.id}
+                  todo={todo}
+                  delete={() => deleteTodo(todo.id)}
+               />
             ))}
          </div>
       </div>
