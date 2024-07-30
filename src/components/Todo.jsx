@@ -2,8 +2,18 @@
 const Todo = (props) => {
    return (
       <div className="flex items-center gap-8 p-4 border-b border-b-gray-400 w-2/3">
-         <input type="checkbox" checked={props.todo.isCompleted} />
-         <p className="font-karla text-2xl">{props.todo.title}</p>
+         <input
+            type="checkbox"
+            onClick={props.completeTodo}
+            checked={props.todo.isCompleted}
+         />
+         <p
+            className={`font-karla text-2xl ${
+               props.todo.isCompleted ? "line-through text-gray-300" : ""
+            }`}
+         >
+            {props.todo.title}
+         </p>
          <button
             onClick={props.delete}
             className="flex justify-center items-center bg-gray-100 ml-auto rounded-lg text-red-400 size-12"

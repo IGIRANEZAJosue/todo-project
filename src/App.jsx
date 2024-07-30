@@ -5,10 +5,12 @@ export default function App() {
    const [input, setInput] = useState("");
    const [todos, setTodos] = useState([]);
 
+   // Get data from the input
    const handleInput = (e) => {
       setInput(e.target.value);
    };
 
+   // Add todo to the list
    const addTodo = (e) => {
       e.preventDefault();
       setTodos((previousTodos) => [
@@ -19,8 +21,17 @@ export default function App() {
       setInput("");
    };
 
+   // Delete todo from the list
    const deleteTodo = (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));
+   };
+
+   const completeTodo = (id) => {
+      setTodos((prevTodos) =>
+         prevTodos.map((todo) =>
+            todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+         )
+      );
    };
 
    return (
@@ -50,6 +61,7 @@ export default function App() {
                   key={todo.id}
                   todo={todo}
                   delete={() => deleteTodo(todo.id)}
+                  completeTodo={() => completeTodo(todo.id)}
                />
             ))}
          </div>
