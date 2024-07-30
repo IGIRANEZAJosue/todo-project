@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Todo from "./components/Todo";
 
 export default function App() {
    const [input, setInput] = useState("");
@@ -41,13 +42,7 @@ export default function App() {
          </form>
          <div className="w-full">
             {todos.map((todo) => (
-               <div className="flex items-center gap-8 p-4 w-2/3" key={todo.id}>
-                  <input type="checkbox" checked={todo.isCompleted} />
-                  <p>{todo.title}</p>
-                  <button className="flex justify-center items-center bg-gray-100 ml-auto rounded-lg text-red-400 size-12">
-                     <i className="fa-trash-can fa-solid"></i>
-                  </button>
-               </div>
+               <Todo key={todo.id} todo={todo} todos={todos} />
             ))}
          </div>
       </div>
