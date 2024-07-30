@@ -40,7 +40,7 @@ export default function App() {
                </button>
             </div>
          </form>
-         <div className="w-full">
+         <div className="flex flex-col items-center w-full">
             {todos.map((todo) => (
                <Todo key={todo.id} todo={todo} todos={todos} />
             ))}

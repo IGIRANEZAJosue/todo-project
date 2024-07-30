@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const Todo = ({ todo, todos }) => {
+const Todo = ({ todo }) => {
    return (
       <div className="flex items-center gap-8 p-4 border-b border-b-gray-400 w-2/3">
          <input type="checkbox" checked={todo.isCompleted} />
