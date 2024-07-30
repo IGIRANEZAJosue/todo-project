@@ -1,3 +1,7 @@
 export default function App() {
-   return <h1 className="font-bold text-3xl underline">Hello world!</h1>;
+   return (
+      <div className="flex justify-center items-center">
+         <h1 className="font-bold text-[6rem] text-gray-300">todos</h1>
+      </div>
+   );
 }
